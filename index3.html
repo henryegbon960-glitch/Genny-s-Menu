@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Jenny's Pot | Authentic Nigerian Cuisine</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fef7e8;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      color: #2c2418;
+      padding: 1rem;
+    }
+    .menu-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .hero {
+      background: #702a1d;
+      padding: 2rem;
+      text-align: center;
+      color: #fef7e8;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .contact-strip {
+      background: #fef7e8;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.8rem;
+      font-weight: bold;
+      border-bottom: 2px solid #702a1d;
+      flex-wrap: wrap;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 1.5rem;
+    }
+    @media (min-width: 900px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
+    .menu-category { margin-bottom: 1rem; }
+    .category-header {
+      background: #702a1d;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .menu-table th {
+      text-align: right;
+      padding: 0.5rem;
+      color: #702a1d;
+      border-bottom: 1px solid #ddd;
+    }
+    .menu-table th:first-child { text-align: left; }
+    .menu-table td {
+      padding: 0.6rem 0.4rem;
+      border-bottom: 1px solid #eee;
+    }
+    .dish-name { font-weight: 600; color: #444; width: 40%; }
+    .price { text-align: right; font-weight: 500; }
+    .specialty-grid { grid-column: 1 / -1; }
+    footer {
+      background: #702a1d;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+<div class="menu-container">
+  <div class="hero">
+    <h1>Genny's Pot Menu</h1>
+    <p>Authentic Nigerian Flavours</p>
+  </div>
+  
+  <div class="contact-strip">
+    <span>📞 07473772870</span>
+    <span>📷 gennyspot</span>
+    <span>📍 gennys.pot</span>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-category">
+      <div class="category-header"><h3>RICE DISHES</h3></div>
+      <table class="menu-table">
+        <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
+        <tbody>
+          <tr><td class="dish-name">Smokey Jollof Rice</td><td class="price">£40</td><td class="price">£60</td><td class="price">£100</td></tr>
+          <tr><td class="dish-name">Smokey Jollof Rice w/ Chicken</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
+          <tr><td class="dish-name">Coconut Jollof Rice w/ Chicken</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
+          <tr><td class="dish-name">Nigerian Fried Rice</td><td class="price">£50</td><td class="price">£70</td><td class="price">£120</td></tr>
+          <tr><td class="dish-name">Nigerian Fried Rice w/ Chicken</td><td class="price">£65</td><td class="price">£85</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Coconut Fried Rice w/ Chicken</td><td class="price">£75</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Prawn Fried Rice</td><td class="price">£80</td><td class="price">£120</td><td class="price">£220</td></tr>
+          <tr><td class="dish-name">Native Rice</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
+          <tr><td class="dish-name">Banga Rice w/ Assorted Meats</td><td class="price">£65</td><td class="price">£85</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Goat Meat Jollof Rice</td><td class="price">£70</td><td class="price">£90</td><td class="price">£160</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="menu-category">
+      <div class="category-header"><h3>STEWS / SAUCE</h3></div>
+      <table class="menu-table">
+        <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
+        <tbody>
+          <tr><td class="dish-name">Ayamase</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Ponmo Meat Stew</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Titus Fish Stew</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Fresh Fish Stew (Obue Imoyo)</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Hake Fish Stew</td><td class="price">£60</td><td class="price">£85</td><td class="price">£160</td></tr>
+          <tr><td class="dish-name">Turkey Stew</td><td class="price">£70</td><td class="price">£110</td><td class="price">£200</td></tr>
+          <tr><td class="dish-name">Goat Meat Stew</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Chicken Stew</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Beef Stew</td><td class="price">£60</td><td class="price">£90</td><td class="price">£170</td></tr>
+          <tr><td class="dish-name">Buka Stew w/ Assorted Meat</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="menu-category">
+      <div class="category-header"><h3>PROTEINS</h3></div>
+      <table class="menu-table">
+        <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
+        <tbody>
+          <tr><td class="dish-name">Peppered Titus Fish</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Peppered Beef</td><td class="price">£60</td><td class="price">£90</td><td class="price">£170</td></tr>
+          <tr><td class="dish-name">Asun Spicy Goat Meat</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Peppered Gizzard</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Peppered Chicken</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Peppered Turkey</td><td class="price">£70</td><td class="price">£110</td><td class="price">£200</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="menu-category">
+      <div class="category-header"><h3>SOUPS</h3></div>
+      <table class="menu-table">
+        <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
+        <tbody>
+          <tr><td class="dish-name">Efo Riro</td><td class="price">£70</td><td class="price">£110</td><td class="price">£210</td></tr>
+          <tr><td class="dish-name">Seafood Okro</td><td class="price">£80</td><td class="price">£120</td><td class="price">£230</td></tr>
+          <tr><td class="dish-name">Mixed Meat Okro</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
+          <tr><td class="dish-name">Egusi Soup w/ Assorted Meat</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
+          <tr><td class="dish-name">Banga Soup w/ Fish & Meat</td><td class="price">£70</td><td class="price">£110</td><td class="price">£210</td></tr>
+          <tr><td class="dish-name">Oha Soup (Assorted/Fish)</td><td class="price">£75</td><td class="price">£110</td><td class="price">£210</td></tr>
+          <tr><td class="dish-name">Ogbono Soup</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
+          <tr><td class="dish-name">Bitterleaf Soup</td><td class="price">£70</td><td class="price">£110</td><td class="price">£210</td></tr>
+          <tr><td class="dish-name">Afang Soup</td><td class="price">£75</td><td class="price">£120</td><td class="price">£230</td></tr>
+          <tr><td class="dish-name">Edikang Ikong</td><td class="price">£80</td><td class="price">£130</td><td class="price">£250</td></tr>
+          <tr><td class="dish-name">Vegetable Soup</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="menu-category">
+      <div class="category-header"><h3>SIDES & OTHERS</h3></div>
+      <table class="menu-table">
+        <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
+        <tbody>
+          <tr><td class="dish-name">Yam Porridge</td><td class="price">£60</td><td class="price">£85</td><td class="price">£160</td></tr>
+          <tr><td class="dish-name">Beans Porridge</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Beans & Corn (Adalu)</td><td class="price">£60</td><td class="price">£85</td><td class="price">£160</td></tr>
+          <tr><td class="dish-name">Abacha w/ Fish & Ponmo</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
+          <tr><td class="dish-name">Ugba & Cow Head</td><td class="price">£75</td><td class="price">£115</td><td class="price">£220</td></tr>
+          <tr><td class="dish-name">Nkwobi</td><td class="price">£75</td><td class="price">£115</td><td class="price">£220</td></tr>
+          <tr><td class="dish-name">Isi Ewu</td><td class="price">£80</td><td class="price">£130</td><td class="price">£250</td></tr>
+          <tr><td class="dish-name">Gizdodo</td><td class="price">£70</td><td class="price">£110</td><td class="price">£210</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="menu-category specialty-grid">
+      <div class="category-header"><h3>SPECIALTY ITEMS</h3></div>
+      <table class="menu-table">
+        <tbody>
+          <tr><td class="dish-name">Moi Moi (Minimum 10 Pcs)</td><td class="price">£50</td></tr>
+          <tr><td class="dish-name">Semo/Eba (Minimum 10 Wraps)</td><td class="price">£25</td></tr>
+          <tr><td class="dish-name">1 Cooler of Smoky Jollof Rice</td><td class="price">£200</td></tr>
+          <tr><td class="dish-name">1 Cooler of Fried Rice</td><td class="price">£220</td></tr>
+          <tr><td class="dish-name">1 Cooler of Soup (Egusi, Onugbu, Oha)</td><td class="price">£250</td></tr>
+          <tr><td class="dish-name">1 Cooler of Pepper Soup (Meat Assort)</td><td class="price">£250</td></tr>
+          <tr><td class="dish-name">1 Cooler of Pepper Soup (Cat Fish)</td><td class="price">£270</td></tr>
+          <tr><td class="dish-name">25 Pieces of Chicken</td><td class="price">£50</td></tr>
+          <tr><td class="dish-name">25 Pieces of Turkey</td><td class="price">£65</td></tr>
+          <tr><td class="dish-name">25 Pieces of Beef</td><td class="price">£50</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <p>Follow us: @gennyspot | Call: 07473772870</p>
+  </footer>
+</div>
+</body>
+</html>
