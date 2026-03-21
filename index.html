@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Genny's Pot | Authentic Nigerian Cuisine</title>
   <style>
-    /* 3D Root Variables */
     :root {
       --primary: #702a1d;
       --secondary: #f5a623;
+      --whatsapp: #25D366;
       --bg: #fef7e8;
       --white: #ffffff;
-      --shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-      --inner-glow: inset 0 1px 0 rgba(255,255,255,0.4);
+      --shadow: 0 15px 35px rgba(0,0,0,0.2);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,7 +19,7 @@
     body {
       background: var(--bg);
       background-image: radial-gradient(#d9cfbb 1px, transparent 1px);
-      background-size: 30px 30px; /* Subtle textured background */
+      background-size: 30px 30px;
       font-family: 'Segoe UI', Roboto, sans-serif;
       color: #2c2418;
       padding: 2rem 1rem;
@@ -35,37 +34,27 @@
       box-shadow: var(--shadow);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.8);
-      transform: perspective(1000px);
     }
 
-    /* Hero Section with Depth */
+    /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #8b3626 0%, #702a1d 100%);
       padding: 4rem 2rem;
       text-align: center;
       color: #fef7e8;
-      position: relative;
       box-shadow: inset 0 -10px 20px rgba(0,0,0,0.2);
     }
 
     .hero h1 { 
       font-size: clamp(2.5rem, 8vw, 4rem); 
       text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+      text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
       margin-bottom: 0.5rem;
-    }
-
-    .hero p { 
-      font-size: 1.2rem; 
-      opacity: 0.9; 
-      font-style: italic; 
-      letter-spacing: 1px;
     }
 
     /* Floating Contact Strip */
     .contact-strip {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
@@ -73,12 +62,11 @@
       gap: 2rem;
       padding: 1.2rem;
       font-weight: bold;
-      margin: -25px 2rem 1rem 2rem;
+      margin: -30px 2rem 1rem 2rem;
       border-radius: 50px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       z-index: 10;
       position: relative;
-      border: 1px solid #702a1d33;
     }
 
     .contact-item {
@@ -87,12 +75,9 @@
       gap: 0.6rem;
       text-decoration: none;
       color: var(--primary);
-      transition: transform 0.2s ease;
     }
 
-    .contact-item:hover { transform: translateY(-3px); }
-
-    /* 3D Menu Grid */
+    /* Menu Grid */
     .menu-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -102,19 +87,18 @@
 
     @media (min-width: 900px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
 
-    /* Category Cards */
     .menu-category {
       background: #fff;
       padding: 1.5rem;
       border-radius: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border: 1px solid #f0f0f0;
-      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .menu-category:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(112, 42, 29, 0.15);
+      transform: scale(1.02) translateY(-5px);
+      box-shadow: 0 15px 30px rgba(112, 42, 29, 0.1);
     }
 
     .category-header {
@@ -123,67 +107,64 @@
       padding: 0.8rem 1.5rem;
       margin: -1.5rem -1.5rem 1.5rem -1.5rem;
       border-radius: 1.5rem 1.5rem 0 0;
-      box-shadow: var(--inner-glow);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
     }
-
-    .category-header h3 { font-size: 1.3rem; letter-spacing: 1px; }
 
     /* Table Styling */
-    .menu-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
+    .menu-table { width: 100%; border-collapse: collapse; }
     .menu-table th {
       text-align: right;
       padding: 0.8rem 0.5rem;
       color: var(--primary);
-      text-transform: uppercase;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       border-bottom: 2px solid var(--bg);
     }
-
     .menu-table th:first-child { text-align: left; }
-
-    .menu-table td {
-      padding: 0.9rem 0.5rem;
-      border-bottom: 1px solid #f9f9f9;
-      transition: background 0.2s;
-    }
-
-    .menu-category:hover td { border-bottom-color: #eee; }
+    .menu-table td { padding: 0.9rem 0.5rem; border-bottom: 1px solid #f9f9f9; }
 
     .dish-name { font-weight: 700; color: #443; font-size: 0.95rem; }
-    .price { text-align: right; font-weight: 800; color: var(--primary); font-family: 'Courier New', monospace; }
+    .price { text-align: right; font-weight: 800; color: var(--primary); }
 
-    /* Specialty Row */
+    /* Specialty Highlight */
     .specialty-grid { 
         grid-column: 1 / -1; 
-        background: linear-gradient(to right, #fff, #fff9f0);
+        border: 2px solid var(--primary);
+        background: #fffdf9;
     }
 
-    /* Footer */
+    /* WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--whatsapp);
+      color: #FFF;
+      border-radius: 50px;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .wa-float:hover { transform: translateY(-5px) scale(1.05); background-color: #1ebe57; }
+
     footer {
       background: var(--primary);
       color: white;
       text-align: center;
       padding: 3rem 1rem;
-      margin-top: 2rem;
-    }
-
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-      background: rgba(0,0,0,0.2);
-      padding: 1rem;
-      border-radius: 50px;
-      display: inline-flex;
     }
   </style>
 </head>
@@ -200,11 +181,11 @@
 <div class="menu-container">
   <div class="hero">
     <h1>Genny's Pot</h1>
-    <p>Premium Authentic Nigerian Catering</p>
+    <p>Authentic Nigerian Flavours Delivered</p>
   </div>
   
   <div class="contact-strip">
-    <span class="contact-item">📞 07473772870</span>
+    <span class="contact-item">📞 +44 7473 772870</span>
     <a href="https://instagram.com/gennyspot" class="contact-item">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -217,7 +198,6 @@
   </div>
 
   <div class="menu-grid">
-    
     <div class="menu-category">
       <div class="category-header"><h3>RICE DISHES</h3></div>
       <table class="menu-table">
@@ -242,7 +222,7 @@
       <table class="menu-table">
         <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
         <tbody>
-          <tr><td class="dish-name">Ayamase (Designer Rice Sauce)</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Ayamase</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
           <tr><td class="dish-name">Ponmo Meat Stew</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
           <tr><td class="dish-name">Titus Fish Stew</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
           <tr><td class="dish-name">Fresh Fish Stew (Obue Imoyo)</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
@@ -257,7 +237,7 @@
     </div>
 
     <div class="menu-category">
-      <div class="category-header"><h3>PROTEINS (PEPPERED)</h3></div>
+      <div class="category-header"><h3>PEPPERED PROTEINS</h3></div>
       <table class="menu-table">
         <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
         <tbody>
@@ -269,7 +249,7 @@
           <tr><td class="dish-name">Peppered Turkey</td><td class="price">£70</td><td class="price">£110</td><td class="price">£200</td></tr>
         </tbody>
       </table>
-    </div>
+    </div>   
 
     <div class="menu-category">
       <div class="category-header"><h3>TRADITIONAL SOUPS</h3></div>
@@ -325,21 +305,25 @@
         </tbody>
       </table>
     </div>
-
   </div>
 
-  <footer>
+<footer>
     <p>© 2026 Genny's Pot. All Rights Reserved.</p>
     <div class="footer-social">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-      </svg>
-      @gennyspot  |  📞 07473772870
+      </svg>       
+@gennyspot  |  📞 +44 7473 772870
     </div>
   </footer>
 </div>
+
+<a href="https://wa.me/447473772870" class="wa-float" target="_blank">
+  <span>Order via WhatsApp</span>
+  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.32 0-4.519.903-6.16 2.544-1.64 1.64-2.543 3.838-2.543 6.158 0 1.29.289 2.583.83 3.757l-1.074 3.92 4.01-.1.1052-.062c1.171.551 2.445.841 3.748.841 2.32 0 4.519-.903 6.16-2.544 1.64-1.64 2.542-3.838 2.542-6.158 0-4.817-3.92-8.736-8.736-8.736zm4.433 12.338c-.19.531-1.092.985-1.498 1.029-.373.041-.856.064-1.385-.106-.324-.103-2.18-.838-4.148-2.587-1.629-1.447-2.731-3.238-3.05-3.784-.318-.547-.034-.844.243-1.121.249-.249.547-.638.821-.957.273-.318.365-.547.547-.912.182-.365.091-.684-.046-.957-.137-.273-1.231-2.964-1.687-4.058-.444-1.066-.893-.922-1.231-.939-.319-.016-.684-.02-1.048-.02s-.957.137-1.459.684c-.502.547-1.917 1.869-1.917 4.56s1.963 5.291 2.237 5.656c.273.365 3.863 5.891 9.358 8.251 1.308.561 2.33.896 3.126 1.148 1.312.416 2.505.358 3.447.217 1.051-.157 3.235-1.323 3.691-2.599.456-1.277.456-2.37.319-2.599-.137-.23-.502-.365-1.048-.638z"/></svg>
+</a>
 
 </body>
 </html>
