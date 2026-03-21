@@ -3,107 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Jenny's Pot | Authentic Nigerian Cuisine</title>
+  <title>Genny's Pot | Authentic Nigerian Cuisine</title>
   <style>
+    /* 3D Root Variables */
+    :root {
+      --primary: #702a1d;
+      --secondary: #f5a623;
+      --bg: #fef7e8;
+      --white: #ffffff;
+      --shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      --inner-glow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      background: #fef7e8;
+      background: var(--bg);
+      background-image: radial-gradient(#d9cfbb 1px, transparent 1px);
+      background-size: 30px 30px; /* Subtle textured background */
       font-family: 'Segoe UI', Roboto, sans-serif;
       color: #2c2418;
-      padding: 1rem;
+      padding: 2rem 1rem;
     }
+
+    /* 3D Container */
     .menu-container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: var(--white);
+      border-radius: 2rem;
+      box-shadow: var(--shadow);
       overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.8);
+      transform: perspective(1000px);
     }
+
+    /* Hero Section with Depth */
     .hero {
-      background: #702a1d;
-      padding: 2rem;
+      background: linear-gradient(135deg, #8b3626 0%, #702a1d 100%);
+      padding: 4rem 2rem;
       text-align: center;
       color: #fef7e8;
+      position: relative;
+      box-shadow: inset 0 -10px 20px rgba(0,0,0,0.2);
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+
+    .hero h1 { 
+      font-size: clamp(2.5rem, 8vw, 4rem); 
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p { 
+      font-size: 1.2rem; 
+      opacity: 0.9; 
+      font-style: italic; 
+      letter-spacing: 1px;
+    }
+
+    /* Floating Contact Strip */
     .contact-strip {
-      background: #fef7e8;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      padding: 0.8rem;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.2rem;
       font-weight: bold;
-      border-bottom: 2px solid #702a1d;
-      flex-wrap: wrap;
+      margin: -25px 2rem 1rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      z-index: 10;
+      position: relative;
+      border: 1px solid #702a1d33;
     }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    .contact-item:hover { transform: translateY(-3px); }
+
+    /* 3D Menu Grid */
     .menu-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 1.5rem;
+      gap: 2.5rem;
+      padding: 3rem 2rem;
     }
+
     @media (min-width: 900px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
-    .menu-category { margin-bottom: 1rem; }
-    .category-header {
-      background: #702a1d;
-      color: white;
-      padding: 0.5rem 1rem;
-      margin-bottom: 0.5rem;
+
+    /* Category Cards */
+    .menu-category {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
     }
+
+    .menu-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(112, 42, 29, 0.15);
+    }
+
+    .category-header {
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+      border-radius: 1.5rem 1.5rem 0 0;
+      box-shadow: var(--inner-glow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .category-header h3 { font-size: 1.3rem; letter-spacing: 1px; }
+
+    /* Table Styling */
     .menu-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.85rem;
     }
+
     .menu-table th {
       text-align: right;
-      padding: 0.5rem;
-      color: #702a1d;
-      border-bottom: 1px solid #ddd;
+      padding: 0.8rem 0.5rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      border-bottom: 2px solid var(--bg);
     }
+
     .menu-table th:first-child { text-align: left; }
+
     .menu-table td {
-      padding: 0.6rem 0.4rem;
-      border-bottom: 1px solid #eee;
+      padding: 0.9rem 0.5rem;
+      border-bottom: 1px solid #f9f9f9;
+      transition: background 0.2s;
     }
-    .dish-name { font-weight: 600; color: #444; width: 40%; }
-    .price { text-align: right; font-weight: 500; }
-    .specialty-grid { grid-column: 1 / -1; }
+
+    .menu-category:hover td { border-bottom-color: #eee; }
+
+    .dish-name { font-weight: 700; color: #443; font-size: 0.95rem; }
+    .price { text-align: right; font-weight: 800; color: var(--primary); font-family: 'Courier New', monospace; }
+
+    /* Specialty Row */
+    .specialty-grid { 
+        grid-column: 1 / -1; 
+        background: linear-gradient(to right, #fff, #fff9f0);
+    }
+
+    /* Footer */
     footer {
-      background: #702a1d;
+      background: var(--primary);
       color: white;
       text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      background: rgba(0,0,0,0.2);
       padding: 1rem;
-      font-size: 0.9rem;
+      border-radius: 50px;
+      display: inline-flex;
     }
   </style>
 </head>
 <body>
+
+<svg style="width:0;height:0;position:absolute;">
+  <linearGradient id="ig-grad" x1="100%" y1="100%" x2="0%" y2="0%">
+    <stop offset="0%" stop-color="#fdf497" />
+    <stop offset="45%" stop-color="#fd5949" />
+    <stop offset="90%" stop-color="#285AEB" />
+  </linearGradient>
+</svg>
+
 <div class="menu-container">
   <div class="hero">
-    <h1>Genny's Pot Menu</h1>
-    <p>Authentic Nigerian Flavours</p>
+    <h1>Genny's Pot</h1>
+    <p>Premium Authentic Nigerian Catering</p>
   </div>
   
   <div class="contact-strip">
-    <span>📞 07473772870</span>
-    <span>📷 gennyspot</span>
-    <span>📍 gennys.pot</span>
+    <span class="contact-item">📞 07473772870</span>
+    <a href="https://instagram.com/gennyspot" class="contact-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      @gennyspot
+    </a>
+    <span class="contact-item">📍 London, UK</span>
   </div>
 
   <div class="menu-grid">
+    
     <div class="menu-category">
       <div class="category-header"><h3>RICE DISHES</h3></div>
       <table class="menu-table">
         <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
         <tbody>
           <tr><td class="dish-name">Smokey Jollof Rice</td><td class="price">£40</td><td class="price">£60</td><td class="price">£100</td></tr>
-          <tr><td class="dish-name">Smokey Jollof Rice w/ Chicken</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
-          <tr><td class="dish-name">Coconut Jollof Rice w/ Chicken</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
+          <tr><td class="dish-name">Smokey Jollof Rice + Chicken</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
+          <tr><td class="dish-name">Coconut Jollof Rice + Chicken</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
           <tr><td class="dish-name">Nigerian Fried Rice</td><td class="price">£50</td><td class="price">£70</td><td class="price">£120</td></tr>
-          <tr><td class="dish-name">Nigerian Fried Rice w/ Chicken</td><td class="price">£65</td><td class="price">£85</td><td class="price">£150</td></tr>
-          <tr><td class="dish-name">Coconut Fried Rice w/ Chicken</td><td class="price">£75</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Nigerian Fried Rice + Chicken</td><td class="price">£65</td><td class="price">£85</td><td class="price">£150</td></tr>
+          <tr><td class="dish-name">Coconut Fried Rice + Chicken</td><td class="price">£75</td><td class="price">£100</td><td class="price">£180</td></tr>
           <tr><td class="dish-name">Prawn Fried Rice</td><td class="price">£80</td><td class="price">£120</td><td class="price">£220</td></tr>
           <tr><td class="dish-name">Native Rice</td><td class="price">£60</td><td class="price">£80</td><td class="price">£140</td></tr>
           <tr><td class="dish-name">Banga Rice w/ Assorted Meats</td><td class="price">£65</td><td class="price">£85</td><td class="price">£150</td></tr>
@@ -113,11 +238,11 @@
     </div>
 
     <div class="menu-category">
-      <div class="category-header"><h3>STEWS / SAUCE</h3></div>
+      <div class="category-header"><h3>STEWS & SAUCES</h3></div>
       <table class="menu-table">
         <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
         <tbody>
-          <tr><td class="dish-name">Ayamase</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Ayamase (Designer Rice Sauce)</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
           <tr><td class="dish-name">Ponmo Meat Stew</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
           <tr><td class="dish-name">Titus Fish Stew</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
           <tr><td class="dish-name">Fresh Fish Stew (Obue Imoyo)</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
@@ -132,13 +257,13 @@
     </div>
 
     <div class="menu-category">
-      <div class="category-header"><h3>PROTEINS</h3></div>
+      <div class="category-header"><h3>PROTEINS (PEPPERED)</h3></div>
       <table class="menu-table">
         <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
         <tbody>
           <tr><td class="dish-name">Peppered Titus Fish</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
           <tr><td class="dish-name">Peppered Beef</td><td class="price">£60</td><td class="price">£90</td><td class="price">£170</td></tr>
-          <tr><td class="dish-name">Asun Spicy Goat Meat</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
+          <tr><td class="dish-name">Asun (Spicy Goat Meat)</td><td class="price">£65</td><td class="price">£100</td><td class="price">£180</td></tr>
           <tr><td class="dish-name">Peppered Gizzard</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
           <tr><td class="dish-name">Peppered Chicken</td><td class="price">£55</td><td class="price">£80</td><td class="price">£150</td></tr>
           <tr><td class="dish-name">Peppered Turkey</td><td class="price">£70</td><td class="price">£110</td><td class="price">£200</td></tr>
@@ -147,17 +272,17 @@
     </div>
 
     <div class="menu-category">
-      <div class="category-header"><h3>SOUPS</h3></div>
+      <div class="category-header"><h3>TRADITIONAL SOUPS</h3></div>
       <table class="menu-table">
         <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
         <tbody>
           <tr><td class="dish-name">Efo Riro</td><td class="price">£70</td><td class="price">£110</td><td class="price">£210</td></tr>
           <tr><td class="dish-name">Seafood Okro</td><td class="price">£80</td><td class="price">£120</td><td class="price">£230</td></tr>
           <tr><td class="dish-name">Mixed Meat Okro</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
-          <tr><td class="dish-name">Egusi Soup w/ Assorted Meat</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
+          <tr><td class="dish-name">Egusi w/ Assorted Meat</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
           <tr><td class="dish-name">Banga Soup w/ Fish & Meat</td><td class="price">£70</td><td class="price">£110</td><td class="price">£210</td></tr>
           <tr><td class="dish-name">Oha Soup (Assorted/Fish)</td><td class="price">£75</td><td class="price">£110</td><td class="price">£210</td></tr>
-          <tr><td class="dish-name">Ogbono Soup</td><td class="price">£65</td><td class="price">£100</td><td class="price">£190</td></tr>
+          <tr><td class="dish-name">Ogbono Soup</td><td class="price">£65</td><td class="price">£100</td><td class="price dynamic">£190</td></tr>
           <tr><td class="dish-name">Bitterleaf Soup</td><td class="price">£70</td><td class="price">£110</td><td class="price">£210</td></tr>
           <tr><td class="dish-name">Afang Soup</td><td class="price">£75</td><td class="price">£120</td><td class="price">£230</td></tr>
           <tr><td class="dish-name">Edikang Ikong</td><td class="price">£80</td><td class="price">£130</td><td class="price">£250</td></tr>
@@ -167,7 +292,7 @@
     </div>
 
     <div class="menu-category">
-      <div class="category-header"><h3>SIDES & OTHERS</h3></div>
+      <div class="category-header"><h3>SIDES & PORRIDGE</h3></div>
       <table class="menu-table">
         <thead><tr><th>Item</th><th>2L</th><th>4L</th><th>8L</th></tr></thead>
         <tbody>
@@ -184,27 +309,37 @@
     </div>
 
     <div class="menu-category specialty-grid">
-      <div class="category-header"><h3>SPECIALTY ITEMS</h3></div>
+      <div class="category-header"><h3>BULK SPECIALTIES & SIZES</h3></div>
       <table class="menu-table">
         <tbody>
           <tr><td class="dish-name">Moi Moi (Minimum 10 Pcs)</td><td class="price">£50</td></tr>
-          <tr><td class="dish-name">Semo/Eba (Minimum 10 Wraps)</td><td class="price">£25</td></tr>
-          <tr><td class="dish-name">1 Cooler of Smoky Jollof Rice</td><td class="price">£200</td></tr>
-          <tr><td class="dish-name">1 Cooler of Fried Rice</td><td class="price">£220</td></tr>
-          <tr><td class="dish-name">1 Cooler of Soup (Egusi, Onugbu, Oha)</td><td class="price">£250</td></tr>
-          <tr><td class="dish-name">1 Cooler of Pepper Soup (Meat Assort)</td><td class="price">£250</td></tr>
-          <tr><td class="dish-name">1 Cooler of Pepper Soup (Cat Fish)</td><td class="price">£270</td></tr>
-          <tr><td class="dish-name">25 Pieces of Chicken</td><td class="price">£50</td></tr>
-          <tr><td class="dish-name">25 Pieces of Turkey</td><td class="price">£65</td></tr>
-          <tr><td class="dish-name">25 Pieces of Beef</td><td class="price">£50</td></tr>
+          <tr><td class="dish-name">Semo / Eba (Minimum 10 Wraps)</td><td class="price">£25</td></tr>
+          <tr><td class="dish-name">1 LARGE Cooler of Smoky Jollof Rice</td><td class="price">£200</td></tr>
+          <tr><td class="dish-name">1 LARGE Cooler of Fried Rice</td><td class="price">£220</td></tr>
+          <tr><td class="dish-name">1 LARGE Cooler of Soup (Egusi, Onugbu, Oha)</td><td class="price">£250</td></tr>
+          <tr><td class="dish-name">1 LARGE Cooler of Pepper Soup (Assorted Meat)</td><td class="price">£250</td></tr>
+          <tr><td class="dish-name">1 LARGE Cooler of Pepper Soup (Cat Fish)</td><td class="price">£270</td></tr>
+          <tr><td class="dish-name">25 Pieces of Chicken (Sides)</td><td class="price">£50</td></tr>
+          <tr><td class="dish-name">25 Pieces of Turkey (Sides)</td><td class="price">£65</td></tr>
+          <tr><td class="dish-name">25 Pieces of Beef (Sides)</td><td class="price">£50</td></tr>
         </tbody>
       </table>
     </div>
+
   </div>
 
   <footer>
-    <p>Follow us: @gennyspot | Call: 07473772870</p>
+    <p>© 2026 Genny's Pot. All Rights Reserved.</p>
+    <div class="footer-social">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      @gennys.pot  |  📞 07473772870
+    </div>
   </footer>
 </div>
+
 </body>
 </html>
